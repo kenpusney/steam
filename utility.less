@@ -1,0 +1,27 @@
+.pull-right {
+    float: right !important;
+}
+
+.hide,
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+invisible {
+    visibility: hidden;
+}
+
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
