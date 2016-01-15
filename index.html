@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Steam Example</title>
-    <link rel="stylesheet/less" type="text/css" href="steam.less" />
+    <link rel="stylesheet/less" type="text/css" href="lomo.less" />
+    <script type="text/javascript">
+    var x = 100;
+    function counter() {
+        return x++;
+    }
+    
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var elem = document.getElementById(data).cloneNode(true);
+        elem.id = "abc" + counter();
+        ev.target.appendChild(elem);
+        ev.stopPropagation();
+    }
+    </script>
 </head>
 <body class="steam">
     <header class="row">
@@ -18,70 +41,93 @@
             </ul>
         </nav>
     </header>
-    <div class="row">
-        <div class="pan2 pull-right">
-            Hello world
-        </div>
-        <div class="span2 offset1">
-            <div class="card">
-            Hello world
-            Hello world
-            Hello world
-            Hello world
-            Hello world
-            Hello world
-            Hello world
-            Hello world
-            Hello world
-            Hello world
+    <article class="row">
+        <div class="span8" style="height:1000px">
+            <h3 class="row">Workspace</h3>
+            <div class="row span12 card workspace" ondragover="allowDrop(event)" ondrop="drop(event)">
             </div>
         </div>
-        <div class="span2">
-            Hello world
-        </div>
-
-    </div>
-    <article class="row">
-        <div class="span2">
-            Hello world
-        </div>
-        <div class="span8">
-            Hello world
-        </div>
-        <div class="span2">
-            Hello world
+        <div class="span4 toolbox">
+            <h3 class="row">Toolbox</h3>
+            <div class="toolbox-item span5">
+                <div id="IfStmt" class="component" draggable="true" ondragstart="drag(event)">
+                    <div class="text">if</div>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                    <div class="text">then</div>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                </div>
+            </div>
+            
+            <div class="toolbox-item span5">
+                <div id="IfElseStmt" class="component" draggable="true" ondragstart="drag(event)">
+                    <div class="text">if</div>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                    <div class="text">then</div>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                    <div class="text">else</div>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                </div>
+            </div>
+            <div class="toolbox-item span5">
+                <div id="PrintExpr" class="component" draggable="true" ondragstart="drag(event)">
+                    <span class="text">print</span>
+                    <input type="text">
+                </div>
+            </div>
+            
+            <div class="toolbox span5">
+                <div id="ForeachStmt" class="component" draggable="true" ondragstart="drag(event)">
+                    <div class="text">foreach</div>
+                    <div class="field"></div>
+                    <div class="text">in</div>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                    <div class="text">do</div>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                </div>
+            </div>
+            <div class="toolbox span5">
+                <div id="RangeExpr" class="component" draggable="true" ondragstart="drag(event)">
+                    <div class="text">range</div>
+                    <span class="text">from</span>
+                    <input type="number">
+                    <span class="text">to</span>
+                    <input type="number">
+                </div>
+            </div>
+            
+            <div class="toolbox span5">
+                <div id="BinaryExpr" class="component" draggable="true" ondragstart="drag(event)">
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                    <select>
+                        <option value="ADD">+</option>
+                        <option value="SUB">-</option>
+                        <option value="MUL">*</option>
+                        <option value="DIV">/</option>
+                        <option value="EQ">=</option>
+                        <option value="GT">&gt;</option>
+                        <option value="LT">&lt;</option>
+                        <option value="GE">&gt;=</option>
+                        <option value="LE">&lt;=</option>
+                    </select>
+                    <div class="field" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                </div>
+            </div>
+            
+            <div class="toolbox span5">
+                <div id="VariableDecl" class="component" draggable="true" ondragstart="drag(event)">
+                    <div class="text">variable</div>
+                    <input type="text">
+                </div>
+            </div>
+            
+            <div class="toolbox span5">
+                <div id="ConstantExpr" class="component" draggable="true" ondragstart="drag(event)">
+                    <div class="text">constant</div>
+                    <input type="text">
+                </div>
+            </div>
         </div>
     </article>
-    <div class="row">
-        <div class="span2">
-            Hello world
-        </div>
-        <div class="card">
-            Hello world
-        </div>
-        <div class="card">
-            Hello world
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="span1">
-            <div class="card">
-                hello
-            </div>
-        </div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-        <div class="span1">hello</div>
-    </div>
 </body>
 <script src="less.min.js"></script>
 </html>
