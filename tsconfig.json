@@ -1,0 +1,12 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+		"module": "amd",
+        "noImplicitAny": true,
+        "preserveConstEnums": true,
+        "out": "./js/steam.js"
+    },
+    "files": [
+        "ts/steam.ts"
+    ]
+}
