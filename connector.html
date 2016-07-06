@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steam Example</title>
+    <link rel="stylesheet/less" type="text/css" href="less/lomo.less" />
+    <script src="js/less.min.js"></script>
+    <script data-main="js/steam" src="js/require.js"></script>
+
+    <script type="text/javascript">
+    var x = 100;
+    function counter() {
+        return x++;
+    }
+    
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var elem = document.getElementById(data);
+        elem.style.position='absolute'
+        elem.style.left=ev.pageX + "px"
+        elem.style.top=ev.pageY + "px"
+        elem.id = "abc" + counter();
+        ev.target.appendChild(elem);
+        ev.stopPropagation();
+    }
+    </script>
+</head>
+<body class="steam">
+    <header class="row">
+        <h1 class="span3">Logo</h1>
+        <nav class="span9 pull-right">
+            <ul class="compact">
+                <li class="card">Tab 1</li>
+                <li class="card">Tab 2</li>
+                <li class="card">Tab 3</li>
+                <li class="card">Tab 4</li>
+                <li class="card">Tab 5</li>
+            </ul>
+        </nav>
+    </header>
+    <article class="row">
+        <div class="span8" style="height:1000px">
+            <h3 class="row">Workspace</h3>
+            <div class="row span12 card workspace" style="height:500px" ondragover="allowDrop(event)" ondrop="drop(event)">
+                <div class="connector span1 component" id="connector" draggable="true" ondragstart="drag(event)">
+                    hello world
+                </div>
+            </div>
+        </div>
+        <div class="span4 toolbox">
+            <h3 class="row">Toolbox</h3>
+        </div>
+    </article>
+</body>
+</html>

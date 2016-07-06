@@ -2,11 +2,13 @@
 .row {
     .clearfix();
 }
-.spanX(@index) when (@index > 0) {
+
+.spanImpl(@index) when (@index > 0) {
     .span@{index} { .span(@index); }
-    .spanX(@index - 1);
+    .spanImpl(@index - 1);
 }
-.spanX(0) {};
+
+.spanImpl(0) {};
 
 .span(@columns) {
     float: left;
@@ -14,17 +16,18 @@
     display: inline-block;
 }
 
-.offsetX(@index) when (@index > 0) {
+.offsetImpl(@index) when (@index > 0) {
     .offset@{index} { .offset(@index); }
-    .offsetX(@index - 1);
+    .offsetImpl(@index - 1);
 }
-.offsetX(0) {}
+
+.offsetImpl(0) {}
 
 .offset(@columns) {
     margin-left: 8.2% * @columns;
 }
 
 .steam {
-    .spanX(12);
-    .offsetX(12);
+    .spanImpl(12);
+    .offsetImpl(12);
 }

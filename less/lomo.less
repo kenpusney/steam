@@ -1,14 +1,22 @@
-@import 'steam.less';
-@import 'lomo-toolbox.less';
+@import 'steam';
+@import 'lomo-theme';
+@import 'lomo-toolbox';
 
 .component:extend(.card) {
-    width: 97%;
-    background: darkturquoise;
-    margin: 0.1em;
+    display: block;
+    background: @component-background;
 }
 
 .field:extend(.card) {
-    widows: 97%;
     display: block;
-    background: lightslategrey;
+    background: @field-background;
 }
+
+.button:extend(.card) {
+    padding: 0.8em;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+

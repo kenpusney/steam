@@ -6,5 +6,4 @@ export function extend(self: any, obj: any) {
     }
 }
 
-
 export function identity<T>(self: T): T {return self;}
