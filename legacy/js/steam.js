@@ -1,6 +1,7 @@
 define("base", ["require", "exports"], function (require, exports) {
     "use strict";
     exports.__esModule = true;
+    exports.identity = exports.extend = void 0;
     function extend(self, obj) {
         for (var i in obj) {
             if (obj.hasOwnProperty(i)) {
@@ -15,6 +16,7 @@ define("base", ["require", "exports"], function (require, exports) {
 define("polyfill", ["require", "exports", "base"], function (require, exports, base_1) {
     "use strict";
     exports.__esModule = true;
+    exports.input = exports.div = exports.i = exports.a = exports.Visual = void 0;
     var Visual = /** @class */ (function () {
         function Visual() {
         }
@@ -31,6 +33,7 @@ define("polyfill", ["require", "exports", "base"], function (require, exports, b
             base_1.extend(element, attribute);
             return {
                 render: function () {
+                    console.log(el);
                     for (var _i = 0, content_1 = content; _i < content_1.length; _i++) {
                         var el = content_1[_i];
                         if (el.render()['element']) {
@@ -77,6 +80,15 @@ define("steam", ["require", "exports", "polyfill"], function (require, exports, 
         return polyfill_1.div({ textContent: "hello world" }, polyfill_1.div({}, test), polyfill_1.div({}, alter), polyfill_1.div({}, conseq));
         ;
     });
-    document.body.appendChild(if_(polyfill_1.a({ textContent: "hello" }), polyfill_1.a({ textContent: "hello" }), polyfill_1.a({ textContent: "hello" }))
-        .render().element());
+    var ToolboxItem = /** @class */ (function () {
+        function ToolboxItem() {
+        }
+        ToolboxItem.prototype.render = function () {
+            return polyfill_1.div({
+                className: 'toolbox-item'
+            }, polyfill_1.div({}, polyfill_1.a({ href: "/hello" }, polyfill_1.i({ textContent: "Hello world" }))));
+        };
+        return ToolboxItem;
+    }());
+    document.body.appendChild(new ToolboxItem().render().element());
 });

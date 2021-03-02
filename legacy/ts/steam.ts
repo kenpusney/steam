@@ -30,10 +30,12 @@ const if_ = CreateCombinedElement((test, alter, conseq) => {
         );;
 });
 
-document.body.appendChild(
-    if_(
-        a({textContent:"hello"}), 
-        a({textContent:"hello"}), 
-        a({textContent:"hello"}))
-     .render().element())
+class ToolboxItem {
+    render() {
+        return div({
+            className: 'toolbox-item' 
+        }, div({}, a({href: "/hello"}, i({textContent: "Hello world"}))));    
+    }
+}
 
+document.body.appendChild(new ToolboxItem().render().element());

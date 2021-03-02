@@ -20,6 +20,7 @@ function CreateElement(name: string): (attr: any, ...cont: Component[]) => Visua
         
         return {
             render() {
+                console.log(el)
                 for(var el of content) {
                     if ((<any>el.render())['element']) {     
                         element.appendChild((<Visual>el).element());  
