@@ -1,1 +1,9 @@
 *.VC.db
+
+dist/
+
+*.min.js
+*.min.css
+*.map
+
+node_modules/
