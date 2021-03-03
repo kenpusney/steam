@@ -9,9 +9,68 @@
 </head>
 
 <body>
+  <div class="demo-col">
+    <div class="steam-row">
+      <div class="steam-col span-4 offset-4">
+        span 4 offset 4
+      </div>
+      <div class="steam-col span-10">
+        <div class="steamrow">
+          <div class="steam-col span-8">
+            span 8 in span 10
+          </div>
+          <div class="steam-col span-8">
+            span 8 in span 10
+          </div>
+        </div>
+      </div>
 
-  <p class="hello">Hello</p>
+      <div class="steam-col span-6">
+        span 6
+      </div>
+    </div>
+    <div class="steam-row">
+      <div class="steam-col span-4 offset-4">
+        span 4 offset 4
+      </div>
+      <div class="steam-col span-10">
+        <div class="steam-row-flex steam-row__justify-center">
+          <div class="steam-col span-8">
+            span 8 in span 10
+          </div>
+          <div class="steam-col span-8">
+            span 8 in span 10
+          </div>
+        </div>
+      </div>
+
+      <div class="steam-col span-6">
+        span 6
+      </div>
+    </div>
+  </div>
   <script src="./main.js"></script>
+  <style type="text/css">
+    body {
+      width: 100%;
+    }
+
+    .demo-col .steam-col {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 13px;
+      line-height: 30px;
+      text-align: center;
+      background-clip: content-box;
+    }
+
+    .demo-col .steam-col:nth-child(even) {
+      background-color: #66c6f2;
+    }
+    .demo-col .steam-col:nth-child(odd) {
+      background-color: #39a9ed
+    }
+  </style>
 </body>
 
 </html>
