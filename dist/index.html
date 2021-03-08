@@ -20,12 +20,43 @@
     <p><em>This line rendered as italicized text.</em></p>
   </div>
 
+  <div>
+    <div class="box br3"></div>
+    <div class="box br3 br-pill"></div>
+    <div class="box br3 br-top"></div>
+    <div class="box br3 br-right"></div>
+    <div class="box br3 br-bottom"></div>
+    <div class="box br3 br-left"></div>
+  </div>
+
+  <div>
+    <button class="element-primary">Primary Button</button>
+    <button class="element-success">Success Button</button>
+    <button class="element-warning">Warning Button</button>
+    <button class="element-danger">Danger Button</button>
+
+  </div>
   <abbr title="attributes">attr</abbr>
   <abbr title="Hyper Text Markup Language" class="initialism">html</abbr>
   <script src="./main.js"></script>
   <style type="text/css">
     body {
       width: 100%;
+    }
+
+    .box {
+      width: 64px;
+      height: 40px;
+      margin: 5px;
+      border-color: black;
+      border-width: 1px;
+      border-style: solid;
+    }
+
+
+    button {
+      padding: 1em;
+      border: none;
     }
   </style>
 </body>
