@@ -20,6 +20,12 @@ export function append(el, container = document.body) {
   container.appendChild(el);
 }
 
-export function html(html) {
+export function html(html, ...args) {
+  if (!(html.raw)) {
+    throw new TypeError("first parameter must be an template literal")
+  }
+  if (args && args.length) {
+    throw new TypeError("Template literal must not have variables");
+  }
   return element({html}).firstElementChild;
 }
