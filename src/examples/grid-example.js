@@ -8,7 +8,7 @@ append(html`
         span 4 offset 4
       </div>
       <div class="steam-col span-10">
-        <div class="steamrow">
+        <div class="steam-row">
           <div class="steam-col span-8">
             span 8 in span 10
           </div>
